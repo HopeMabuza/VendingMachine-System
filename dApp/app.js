@@ -18,3 +18,24 @@ async function connectWallet() {
         alert("Please install MetaMask.");
     }
     }
+
+    async function buySoda() {
+        if(!contract){
+            return alert("Please connect your wallet first.");
+        }
+        const amount = parseInt(document.getElementById("itemPrice").value);
+
+        try{
+            const pricePerSoda = ethers.utils.parseEther("0.00002");
+            const totalCost = pricePerSoda.mul(amount);
+
+            const tx = await contract.purchase(amount, { value: totalCost });
+
+            await tx.wait();
+            alert("Purchase successful!");
+        } catch (error) {
+            console.error(error);
+            alert("Purchase failed: " + error.message);
+        }
+    }
+    document.getElementById("buySoda").onclick = buySoda;
