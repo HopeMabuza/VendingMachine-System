@@ -9,11 +9,19 @@
             Vending Machine dApp
         </h1>
         <button id="connectWallet">Connect Wallet</button>
-        <p id=""walletAddress"></p>
+        <p id="WalletAddress"></p>
 
         <hr>
+        <div id="controls">
+            <h3>
+                Buy item from vending Machine
+            </h3>
+            <label for="itemPrice">Item Price: </label>
+            <input type="number" id="itemPrice" placeholder="Ex: 1" min="1">
 
-        <button id="buySoda">Buy Soda</button>
+            <button id="buySoda">Buy Soda</button>
+        </div>
+
         <script src="abi.js"></script>
         <script src="app.js"></script>
     </body>
